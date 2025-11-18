@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Your Name</title>
     <link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	
+
 </head>
 <body>
 
@@ -18,33 +21,27 @@
         <nav class="sidebar-nav">
             <ul>
                 <li><a href="#home" class="nav-link active" data-section="home">
-                    <span class="nav-icon">🏠</span>
+                    <span class="nav-icon"><i class="fa-solid fa-house"></i></span>
                     <span class="nav-text">Home</span>
                 </a></li>
                 <li><a href="#about" class="nav-link" data-section="about">
-                    <span class="nav-icon">👤</span>
+                    <span class="nav-icon"><i class="fa-solid fa-user"></i></span>
                     <span class="nav-text">About</span>
                 </a></li>
                 <li><a href="#projects" class="nav-link" data-section="projects">
-                    <span class="nav-icon">💼</span>
+                    <span class="nav-icon"><i class="fa-solid fa-suitcase"></i></span>
                     <span class="nav-text">Projects</span>
                 </a></li>
                 <li><a href="#skills" class="nav-link" data-section="skills">
-                    <span class="nav-icon">⚡</span>
+                    <span class="nav-icon"><i class="fa-solid fa-bolt"></i></span>
                     <span class="nav-text">Skills</span>
                 </a></li>
                 <li><a href="#contact" class="nav-link" data-section="contact">
-                    <span class="nav-icon">📧</span>
+                    <span class="nav-icon"><i class="fa-solid fa-envelope"></i></span>
                     <span class="nav-text">Contact</span>
                 </a></li>
             </ul>
         </nav>
-        <div class="sidebar-footer">
-            <a href="#" class="nav-link">
-                <span class="nav-icon">⚙️</span>
-                <span class="nav-text">Settings</span>
-            </a>
-        </div>
         <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
             <span></span>
             <span></span>
@@ -59,11 +56,11 @@
             <div class="hero-card">
                 <div class="hero-content">
                     <div class="hero-image">
-                        <img src="assets/profile-placeholder.svg" alt="Profile Photo" id="profileImage">
+                        <img src="assets/profile.jpeg" alt="Profile Photo" id="profileImage">
                     </div>
                     <div class="hero-details">
-                        <h1 class="hero-name">Your Name</h1>
-                        <p class="hero-email">your.email@example.com</p>
+                        <h1 class="hero-name">Bhakta Suji</h1>
+                        <p class="hero-email">Aayush.suzie@gmail.com/Aayusheizus@gmail.com</p>
                         <div class="hero-social">
                             <a href="#" class="social-link" aria-label="Twitter">🐦</a>
                             <a href="#" class="social-link" aria-label="LinkedIn">💼</a>
@@ -71,15 +68,15 @@
                         </div>
                         <div class="hero-stats">
                             <div class="stat-box">
-                                <span class="stat-value">5+</span>
+                                <span class="stat-value">1 yrs</span>
                                 <span class="stat-label">Experience</span>
                             </div>
                             <div class="stat-box">
-                                <span class="stat-value">20+</span>
+                                <span class="stat-value">2+</span>
                                 <span class="stat-label">Projects</span>
                             </div>
                             <div class="stat-box">
-                                <span class="stat-value">10+</span>
+                                <span class="stat-value">5+</span>
                                 <span class="stat-label">Skills</span>
                             </div>
                             <div class="stat-box">
@@ -88,8 +85,8 @@
                             </div>
                         </div>
                         <p class="hero-bio">
-                            I'm a passionate developer with over 5 years of experience in web development. 
-                            I love creating beautiful, functional websites and helping others develop their skills.
+                            I'm a passionate developer learning and gaining experience in web development. 
+                            I am aiming to create beautiful, functional websites and skills honing my skills along the way.
                         </p>
                         <div class="hero-actions">
                             <button class="btn btn-primary">
@@ -110,38 +107,20 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-card">
                 <p class="about-intro">
-                    Welcome to my portfolio! I'm a creative developer who enjoys building 
+                    Welcome to my portfolio! I'm a aspiring developer who enjoys learning to build 
                     user-friendly applications and solving complex problems. With a strong 
-                    foundation in modern web technologies, I bring ideas to life through 
+                    foundation in modern web technologies, I  am aiming to bring ideas to life through 
                     clean code and thoughtful design.
                 </p>
                 <div class="work-experience">
                     <h3 class="subsection-title">Work Experience</h3>
                     <div class="experience-list">
                         <div class="experience-item">
-                            <span class="exp-icon">💼</span>
                             <div class="exp-details">
-                                <h4 class="exp-title">Senior Web Developer</h4>
-                                <p class="exp-company">Tech Company Inc.</p>
-                                <p class="exp-period">Jan 2022 - Present</p>
+                                <h4 class="exp-title">Currently Learning</h4>
                             </div>
                         </div>
-                        <div class="experience-item">
-                            <span class="exp-icon">💼</span>
-                            <div class="exp-details">
-                                <h4 class="exp-title">Frontend Developer</h4>
-                                <p class="exp-company">Startup Solutions</p>
-                                <p class="exp-period">Jun 2019 - Dec 2021</p>
-                            </div>
-                        </div>
-                        <div class="experience-item">
-                            <span class="exp-icon">💼</span>
-                            <div class="exp-details">
-                                <h4 class="exp-title">Junior Developer</h4>
-                                <p class="exp-company">Web Agency</p>
-                                <p class="exp-period">Jan 2018 - May 2019</p>
-                            </div>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
@@ -233,6 +212,8 @@
         </section>
     </main>
 
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

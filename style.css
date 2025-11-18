@@ -6,22 +6,25 @@
 }
 
 :root {
-    --bg-main: #f5f0e8;
-    --bg-sidebar: #e8f5e9;
-    --card-yellow: #fff9c4;
-    --card-pink: #fce4ec;
-    --card-blue: #e3f2fd;
+    --bg-main: #8CE4FF;
+    --bg-sidebar: #FFA239;
+    --card-yellow: #88FF88;
+    --card-pink: #88FF88;
+    --card-blue: #88FF88;
     --card-purple: #f3e5f5;
     --text-dark: #1a1a1a;
-    --text-light: #666;
+    --text-light: #343333;
     --border-color: #000000;
     --border-width: 2px;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
 }
-
+@font-face {
+  font-family: retro; /* set name */
+  src: url(assets/IBM3161.ttf); /* url of the font */
+}
 body {
-    font-family: 'Consolas', 'Courier New', monospace;
+    font-family: retro;
     background-color: var(--bg-main);
     color: var(--text-dark);
     line-height: 1.6;
@@ -52,13 +55,13 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-weight: 700;
-    font-size: 18px;
+    font-weight:900;
+    font-size: 25px;
     color: var(--text-dark);
 }
 
 .logo-icon {
-    font-size: 50px;
+    font-size: 30px;
     font-weight: 700;
 }
 
@@ -99,10 +102,11 @@ body {
 
 .nav-icon {
     font-size: 20px;
+    color: #FF5656;
 }
 
 .nav-text {
-    font-weight: 500;
+    font-weight: bold;
 }
 
 .sidebar-footer {
@@ -213,6 +217,7 @@ body {
 
 .hero-email {
     font-size: 18px;
+    font-weight: bold;
     color: var(--text-light);
     margin-bottom: 12px;
 }
@@ -241,7 +246,7 @@ body {
 }
 
 .stat-box {
-    background-color: #fff;
+    background-color: #FEEE91;
     border: var(--border-width) solid var(--border-color);
     border-radius: 8px;
     padding: 16px;
@@ -260,12 +265,14 @@ body {
 .stat-label {
     display: block;
     font-size: 12px;
+    font-weight: bold;
     color: var(--text-light);
     text-transform: uppercase;
 }
 
 .hero-bio {
     font-size: 16px;
+    font-weight: bold;
     line-height: 1.8;
     color: var(--text-dark);
     margin-bottom: 24px;
@@ -281,7 +288,7 @@ body {
     padding: 12px 24px;
     border: var(--border-width) solid var(--border-color);
     border-radius: 8px;
-    font-family: 'Consolas', 'Courier New', monospace;
+    font-family: retro;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
@@ -304,18 +311,18 @@ body {
 }
 
 .btn-secondary {
-    background-color: var(--card-yellow);
+    background-color:#FF5656;
     color: var(--text-dark);
 }
 
 .btn-secondary:hover {
-    background-color: #fffacd;
+    background-color: white;
     transform: translateY(-2px);
     box-shadow: var(--shadow);
 }
 
 .btn-project {
-    background-color: var(--card-blue);
+    background-color: #FF5656;
     color: var(--text-dark);
     margin-top: 16px;
 }
@@ -449,6 +456,7 @@ body {
 
 .project-description {
     font-size: 16px;
+    font-weight: bold;
     line-height: 1.7;
     color: var(--text-dark);
     margin-bottom: 16px;
@@ -456,8 +464,9 @@ body {
 
 .project-tech {
     display: flex;
+    font-weight: bold;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 9px;
     margin-bottom: 16px;
 }
 
@@ -467,7 +476,7 @@ body {
     border-radius: 4px;
     padding: 6px 12px;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: bold;
     color: var(--text-dark);
 }
 
@@ -504,7 +513,7 @@ body {
     padding: 12px;
     border: var(--border-width) solid var(--border-color);
     border-radius: 8px;
-    font-family: 'Consolas', 'Courier New', monospace;
+    font-family: retro;
     font-size: 16px;
     background-color: #fff;
     color: var(--text-dark);
@@ -521,6 +530,7 @@ body {
 .error-message {
     color: #d32f2f;
     font-size: 14px;
+    font-weight: bold;
     min-height: 20px;
     display: block;
 }

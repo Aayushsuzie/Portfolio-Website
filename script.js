@@ -5,6 +5,7 @@ const navLinks = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('.section');
 const contactForm = document.getElementById('contactForm');
 
+
 // Mobile Menu Toggle
 mobileMenuToggle.addEventListener('click', () => {
     sidebar.classList.toggle('active');
@@ -133,24 +134,63 @@ function validateForm() {
     return isValid;
 }
 
+// EmailJS Configuration
+// Replace these with your EmailJS credentials
+// Get them from: https://www.emailjs.com/
+const EMAILJS_SERVICE_ID = 'service_aayush_xx'; // Replace with your EmailJS service ID
+const EMAILJS_TEMPLATE_ID = 'template_3o5yxxf'; // Replace with your EmailJS template ID
+const EMAILJS_PUBLIC_KEY = '8CYI2031Teogj1jxO'; // Replace with your EmailJS public key
+
+// Initialize EmailJS (only if credentials are provided)
+if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+}
+
 // Handle Form Submission
-contactForm.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     
     if (validateForm()) {
-        // Simulate form submission
         const submitButton = contactForm.querySelector('button[type="submit"]');
         const originalText = submitButton.innerHTML;
         
-        submitButton.innerHTML = '<span class="btn-icon">✓</span> Sending...';
+        submitButton.innerHTML = '<span class="btn-icon">⏳</span> Sending...';
         submitButton.disabled = true;
         
-        // Simulate API call
-        setTimeout(() => {
-            alert('Thank you for your message! I will get back to you soon.');
-            contactForm.reset();
+        // Get form data
+        const formData = {
+            from_name: document.getElementById('name').value.trim(),
+            from_email: document.getElementById('email').value.trim(),
+            message: document.getElementById('message').value.trim()
+        };
+        
+        // Check if EmailJS is configured
+        if (EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID' || 
+            EMAILJS_TEMPLATE_ID === 'YOUR_TEMPLATE_ID' || 
+            EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
+            showNotification('Email service not configured. Please set up EmailJS credentials in script.js', 'error');
             submitButton.innerHTML = originalText;
             submitButton.disabled = false;
+            return;
+        }
+        
+        try {
+            // Send email using EmailJS
+            await emailjs.send(
+                EMAILJS_SERVICE_ID,
+                EMAILJS_TEMPLATE_ID,
+                formData
+            );
+            
+            // Success message
+            submitButton.innerHTML = '<span class="btn-icon">✓</span> Message Sent!';
+            submitButton.style.backgroundColor = '#4caf50';
+            
+            // Show success message
+            showNotification('Thank you for your message! I will get back to you soon.', 'success');
+            
+            // Reset form
+            contactForm.reset();
             
             // Remove any error classes
             document.querySelectorAll('.error').forEach(el => {
@@ -159,9 +199,89 @@ contactForm.addEventListener('submit', (e) => {
             document.querySelectorAll('.error-message').forEach(el => {
                 el.textContent = '';
             });
-        }, 1500);
+            
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+                submitButton.style.backgroundColor = '';
+            }, 3000);
+            
+        } catch (error) {
+            console.error('EmailJS Error:', error);
+            
+            // Error message
+            submitButton.innerHTML = '<span class="btn-icon">✗</span> Failed to Send';
+            submitButton.style.backgroundColor = '#f44336';
+            
+            // Show error message
+            showNotification('Failed to send message. Please try again later or contact me directly.', 'error');
+            
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+                submitButton.style.backgroundColor = '';
+            }, 3000);
+        }
     }
 });
+
+// Notification function
+function showNotification(message, type) {
+    // Remove existing notification if any
+    const existingNotification = document.querySelector('.notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+    
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
+    
+    // Add styles
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 20px;
+        background-color: ${type === 'success' ? '#4caf50' : '#f44336'};
+        color: white;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 10000;
+        animation: slideIn 0.3s ease-out;
+        max-width: 300px;
+    `;
+    
+    // Add animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Append to body
+    document.body.appendChild(notification);
+    
+    // Remove after 5 seconds
+    setTimeout(() => {
+        notification.style.animation = 'slideIn 0.3s ease-out reverse';
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 5000);
+}
 
 // Real-time Validation
 const formInputs = contactForm.querySelectorAll('input, textarea');
@@ -191,7 +311,8 @@ document.querySelectorAll('.btn-primary').forEach(btn => {
         btn.addEventListener('click', () => {
             // Create a temporary link to download CV
             // In a real scenario, this would link to an actual CV file
-            alert('CV download would start here. Replace this with actual CV file link.');
+            alert('CV download would start here.');
+			window.open('assets/cv.pdf','_blank');
             // Example: window.open('assets/cv.pdf', '_blank');
         });
     }
