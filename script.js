@@ -138,7 +138,7 @@ function validateForm() {
 // Replace these with your EmailJS credentials
 // Get them from: https://www.emailjs.com/
 const EMAILJS_SERVICE_ID = 'service_aayush_xx'; // Replace with your EmailJS service ID
-const EMAILJS_TEMPLATE_ID = 'template_3o5yxxf'; // Replace with your EmailJS template ID
+const EMAILJS_TEMPLATE_ID = 'template_r8z6uqg'; // Replace with your EmailJS template ID
 const EMAILJS_PUBLIC_KEY = '8CYI2031Teogj1jxO'; // Replace with your EmailJS public key
 
 // Initialize EmailJS (only if credentials are provided)
